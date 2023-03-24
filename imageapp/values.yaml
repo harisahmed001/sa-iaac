@@ -1,0 +1,41 @@
+# Default values for imageapp.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: imageapp
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: "imageapp"
+
+service:
+  type: LoadBalancer
+  port: 80
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+envs:
+  REDIS_HOST: "0.0.0.0"
+  REDIS_PORT: "6379"
+  REDIS_DB: "0"
+  REDIS_EXPIRE_SECONDS: "3600"
+  MONGO_HOST: test
+  MONGO_DB: test
+  MONGO_USER: test
+  MONGO_PASS: test
+  MONGO_POOL: "false"
+  S3_BUCKET: test
+  UPLOAD_FOLDER: "uploads"
+  FLASK_HOST: "0.0.0.0"
+  FLASK_PORT: "5001"

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+<script> 
+$(document).ready(function(){
+    $('button').on('click', function(e){
+        e.preventDefault();
+        fd = new FormData(document.querySelector('#image_upload'));
+        $.ajax({
+                url:'http://localhost:5001/upload',
+                method:'POST',
+                data:fd,
+                processData: false,
+                contentType: false,
+                success:function(data){
+                    if (data.status_code == 0) {
+                        alert("Image uploaded successfully");
+                    } else {
+                        alert("An error occured while saving the image");
+                    }
+                }
+        });
+    })
+});
+</script>
+<style> 
+
+</style>
+</head>
+<body>
+    <form id="image_upload">
+        <input id="image" name="image" type="file">
+        <br>
+        <button>Submit</button>
+      </form>
+</body>
+</html>

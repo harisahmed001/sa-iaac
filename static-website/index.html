@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+<script> 
+$(document).ready(function(){
+    $.get('http://localhost:5001', function(d){
+        if (d.url) {
+            $('img').attr('src', d.url)
+        } else {
+            alert("Image not found")
+        }
+    })
+});
+</script>
+<style> 
+
+</style>
+</head>
+<body>
+    <h1>Image</h1>
+    <img src="">
+</body>
+</html>
