@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   repository: imageapp
   pullPolicy: IfNotPresent
-  tag: "latest"
+  tag: "v1"
 
 imagePullSecrets: []
 nameOverride: ""
