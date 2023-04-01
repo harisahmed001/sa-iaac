@@ -12,6 +12,7 @@ image:
 imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: "imageapp"
+namespace: "default"
 
 service:
   type: LoadBalancer
