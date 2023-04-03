@@ -1,0 +1,4 @@
+test.tf
+terraform.tfstate*
+.terraform
+eks.tf.disable
