@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: imageapp
+  repository: 894162685760.dkr.ecr.us-east-1.amazonaws.com/imageapp
   pullPolicy: IfNotPresent
   tag: "latest"
 
@@ -26,17 +26,23 @@ resources:
     cpu: 100m
     memory: 128Mi
 
+service:
+  healthcheckPath: "/ping"
+  securityGroups: "sg-0a1cbf8e966f44be5"
+  subnets: "subnet-0fbc895f847a2f659,subnet-00235e537c95c7a9f,subnet-0a114ce4bab0ba964,subnet-00b3885f589e23cb9"
+
+
 envs:
   REDIS_HOST: "0.0.0.0"
   REDIS_PORT: "6379"
   REDIS_DB: "0"
   REDIS_EXPIRE_SECONDS: "3600"
-  MONGO_HOST: test
-  MONGO_DB: test
-  MONGO_USER: test
-  MONGO_PASS: test
-  MONGO_POOL: "false"
-  S3_BUCKET: test
-  UPLOAD_FOLDER: "uploads"
+  MONGO_HOST: "HOST"
+  MONGO_DB: "soum"
+  MONGO_USER: "USER"
+  MONGO_PASS: "PASS"
+  MONGO_POOL: "true"
+  S3_BUCKET: ""
+  UPLOAD_FOLDER: "imageappbucketfordev"
   FLASK_HOST: "0.0.0.0"
   FLASK_PORT: "5001"

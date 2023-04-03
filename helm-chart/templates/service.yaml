@@ -1,10 +1,17 @@
 apiVersion: v1
 kind: Service
 metadata:
-  namespace: "{{ .Values.namespace }}"
   name: {{ include "imageapp.fullname" . }}
   labels:
     {{- include "imageapp.labels" . | nindent 4 }}
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-name: "{{ include "imageapp.fullname" . }}"
+    service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
+    service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
+    service.beta.kubernetes.io/aws-load-balancer-healthcheck-path: "{{ .Values.service.healthcheckPath }}"
+    service.beta.kubernetes.io/aws-load-balancer-internal: "false"
+    service.beta.kubernetes.io/aws-load-balancer-security-groups: "{{ .Values.service.securityGroups }}"
+    service.beta.kubernetes.io/aws-load-balancer-subnets: "{{ .Values.service.subnets }}"
 spec:
   type: {{ .Values.service.type }}
   ports:
