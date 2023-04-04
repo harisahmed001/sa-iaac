@@ -14,9 +14,6 @@ nameOverride: ""
 fullnameOverride: "imageapp"
 namespace: "default"
 
-service:
-  type: LoadBalancer
-  port: 80
 
 resources:
   limits:
@@ -28,8 +25,10 @@ resources:
 
 service:
   healthcheckPath: "/ping"
-  securityGroups: "sg-0a1cbf8e966f44be5"
-  subnets: "subnet-0fbc895f847a2f659,subnet-00235e537c95c7a9f,subnet-0a114ce4bab0ba964,subnet-00b3885f589e23cb9"
+  securityGroups: "sg-0d3a2ef1848e242a6"
+  subnets: "subnet-0eb80212e5ec741ad,subnet-0700bb491585f7ebc,subnet-03e46b9ece39d9016,subnet-0f8bb690ddee5cd15"
+  type: LoadBalancer
+  port: 80
 
 
 envs:
