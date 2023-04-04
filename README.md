@@ -36,6 +36,12 @@ Helm for initial Deployment
 helm secrets upgrade -f ./secrets.yml -f ./values.yaml imageapp ./
 ```
 
+## TODO
+1. Change K8 service to ingress
+2. Create domain
+3. Refine sg rules for internal network
+4. Helm notes file
+5. VPC peering of MongoDB
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
